@@ -393,7 +393,7 @@ configure_mosdns_v4_v6_add() {
     else
         white "配置文件不存在，新建配置文件"
     fi
-    wget --quiet --show-progress -O /etc/mosdns/config.yaml https://raw.githubusercontent.com/feiye2021/LinuxScripts/main/AIO/Configs/mosdns/mosdns_20240924.yaml
+    wget --quiet --show-progress -O /etc/mosdns/config.yaml https://raw.githubusercontent.com/Jimmyzxk/LinuxScripts/main/AIO/Configs/mosdns/mosdns_20240924.yaml
     sed -i "s|- addr: 10.10.10.2:5353  # 远程DNS服务器地址ipv4（sing-box IP地址）|- addr: ${uiport}:${sbport}  # 远程DNS服务器地址ipv4（sing-box IP地址）|g" /etc/mosdns/config.yaml
     sed -i "s|- addr: tcp://10.10.10.2:5353  # TCP协议的远程DNS服务器地址ipv4（sing-box IP地址）|- addr: tcp://${uiport}:${sbport}  # TCP协议的远程DNS服务器地址ipv4（sing-box IP地址）|g" /etc/mosdns/config.yaml
 
@@ -468,7 +468,7 @@ install_vector() {
     cd /mnt/ui
     curl --proto '=https' --tlsv1.2 -sSfL https://sh.vector.dev | bash -s -- -y
     rm -rf /root/.vector/config/vector.yaml
-    wget -q -O /root/.vector/config/vector.yaml https://raw.githubusercontent.com/feiye2021/LinuxScripts/main/AIO/Configs/mosdns/vector.yaml
+    wget -q -O /root/.vector/config/vector.yaml https://raw.githubusercontent.com/Jimmyzxk/LinuxScripts/main/AIO/Configs/mosdns/vector.yaml
     cd /etc/systemd/system/
     touch vector.service
 cat << 'EOF' > vector.service
@@ -562,7 +562,7 @@ vector_install_Ovpavac() {
     # 备份并清空 vector.yaml 文件
     [ -f "/etc/vector/vector.yaml" ] && cp "/etc/vector/vector.yaml" "/etc/vector/vector.yaml.bak_$(date +%F_%T)" && > "/etc/vector/vector.yaml"
 
-    wget --quiet --show-progress -O /etc/vector/vector.yaml https://raw.githubusercontent.com/feiye2021/LinuxScripts/main/AIO/Configs/mosdns/vector.yaml
+    wget --quiet --show-progress -O /etc/vector/vector.yaml https://raw.githubusercontent.com/Jimmyzxk/LinuxScripts/main/AIO/Configs/mosdns/vector.yaml
     sed -i "s|/tmp/vector|/etc/vector/cache|g" /etc/vector/vector.yaml
     sed -i '/^Group=vector/a ExecStartPre=/bin/sleep 5' /lib/systemd/system/vector.service
 
@@ -609,7 +609,7 @@ EOF
     # 备份并清空 prometheus.yml 文件
     [ -f "/etc/prometheus/prometheus.yml" ] && cp "/etc/prometheus/prometheus.yml" "/etc/prometheus/prometheus.yml.bak_$(date +%F_%T)" && > "/etc/prometheus/prometheus.yml"
  
-    wget --quiet --show-progress -O /etc/prometheus/prometheus.yml https://raw.githubusercontent.com/feiye2021/LinuxScripts/main/AIO/Configs/mosdns/prometheus.yml
+    wget --quiet --show-progress -O /etc/prometheus/prometheus.yml https://raw.githubusercontent.com/Jimmyzxk/LinuxScripts/main/AIO/Configs/mosdns/prometheus.yml
 
     systemctl daemon-reload
     systemctl enable prometheus --now
@@ -969,7 +969,7 @@ update_vector() {
         exit 1
     else
         cp "/etc/vector/vector.yaml" "/etc/vector/vector.yaml.bak_$(date +%F_%T)"
-        wget --quiet --show-progress -O /etc/vector/vector.yaml https://raw.githubusercontent.com/feiye2021/LinuxScripts/main/AIO/Configs/mosdns/vector.yaml
+        wget --quiet --show-progress -O /etc/vector/vector.yaml https://raw.githubusercontent.com/Jimmyzxk/LinuxScripts/main/AIO/Configs/mosdns/vector.yaml
 
         if [ ! -f "/etc/vector/vector.yaml" ]; then
             red " vector 配置文件下载失败，请检查网络"
