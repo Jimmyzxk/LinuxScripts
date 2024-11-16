@@ -105,7 +105,7 @@ mosdns_choose() {
         -)
             white "脚本切换中，请等待..."
             rm -rf /mnt/mosdns.sh    #delete       
-            wget -q -O /mnt/main_install.sh https://raw.githubusercontent.com/feiye2021/LinuxScripts/main/AIO/Scripts/main_install.sh && chmod +x /mnt/main_install.sh && /mnt/main_install.sh
+            wget -q -O /mnt/main_install.sh https://raw.githubusercontent.com/Jimmyzxk/LinuxScripts/main/AIO/Scripts/main_install.sh && chmod +x /mnt/main_install.sh && /mnt/main_install.sh
             ;;                            
         *)
             white "无效的选项，1秒后返回当前菜单，请重新选择有效的选项."
@@ -361,14 +361,14 @@ configure_mosdns() {
     white "开始配置MosDNS规则..."
     mkdir /etc/mosdns/rule
     cd /etc/mosdns/rule
-    wget -q -O /etc/mosdns/rule/blocklist.txt https://raw.githubusercontent.com/feiye2021/LinuxScripts/main/AIO/Configs/mosdns/mos_rule/blocklist.txt
-    wget -q -O /etc/mosdns/rule/localptr.txt https://raw.githubusercontent.com/feiye2021/LinuxScripts/main/AIO/Configs/mosdns/mos_rule/localptr.txt
-    wget -q -O /etc/mosdns/rule/greylist.txt https://raw.githubusercontent.com/feiye2021/LinuxScripts/main/AIO/Configs/mosdns/mos_rule/greylist.txt
-    wget -q -O /etc/mosdns/rule/whitelist.txt https://raw.githubusercontent.com/feiye2021/LinuxScripts/main/AIO/Configs/mosdns/mos_rule/whitelist.txt
-    wget -q -O /etc/mosdns/rule/ddnslist.txt https://raw.githubusercontent.com/feiye2021/LinuxScripts/main/AIO/Configs/mosdns/mos_rule/ddnslist.txt
-    wget -q -O /etc/mosdns/rule/hosts.txt https://raw.githubusercontent.com/feiye2021/LinuxScripts/main/AIO/Configs/mosdns/mos_rule/hosts.txt
-    wget -q -O /etc/mosdns/rule/redirect.txt https://raw.githubusercontent.com/feiye2021/LinuxScripts/main/AIO/Configs/mosdns/mos_rule/redirect.txt
-    wget -q -O /etc/mosdns/rule/adlist.txt https://raw.githubusercontent.com/feiye2021/LinuxScripts/main/AIO/Configs/mosdns/mos_rule/adlist.txt
+    wget -q -O /etc/mosdns/rule/blocklist.txt https://raw.githubusercontent.com/Jimmyzxk/LinuxScripts/main/AIO/Configs/mosdns/mos_rule/blocklist.txt
+    wget -q -O /etc/mosdns/rule/localptr.txt https://raw.githubusercontent.com/Jimmyzxk/LinuxScripts/main/AIO/Configs/mosdns/mos_rule/localptr.txt
+    wget -q -O /etc/mosdns/rule/greylist.txt https://raw.githubusercontent.com/Jimmyzxk/LinuxScripts/main/AIO/Configs/mosdns/mos_rule/greylist.txt
+    wget -q -O /etc/mosdns/rule/whitelist.txt https://raw.githubusercontent.com/Jimmyzxk/LinuxScripts/main/AIO/Configs/mosdns/mos_rule/whitelist.txt
+    wget -q -O /etc/mosdns/rule/ddnslist.txt https://raw.githubusercontent.com/Jimmyzxk/LinuxScripts/main/AIO/Configs/mosdns/mos_rule/ddnslist.txt
+    wget -q -O /etc/mosdns/rule/hosts.txt https://raw.githubusercontent.com/Jimmyzxk/LinuxScripts/main/AIO/Configs/mosdns/mos_rule/hosts.txt
+    wget -q -O /etc/mosdns/rule/redirect.txt https://raw.githubusercontent.com/Jimmyzxk/LinuxScripts/main/AIO/Configs/mosdns/mos_rule/redirect.txt
+    wget -q -O /etc/mosdns/rule/adlist.txt https://raw.githubusercontent.com/Jimmyzxk1/LinuxScripts/main/AIO/Configs/mosdns/mos_rule/adlist.txt
     green "所有规则文件修改操作已完成"
     white "开始配置MosDNS config文件..."
     rm -rf /etc/mosdns/config.yaml
@@ -378,7 +378,7 @@ configure_mosdns() {
     white "开始配置定时更新规则与清理日志..."
     cd /etc/mosdns
     touch {geosite_cn,geoip_cn,geosite_geolocation_noncn,gfw}.txt
-    wget -q -O /etc/mosdns/mos_rule_update.sh https://raw.githubusercontent.com/feiye2021/LinuxScripts/main/AIO/Configs/mosdns/mos_rule_update.sh
+    wget -q -O /etc/mosdns/mos_rule_update.sh https://raw.githubusercontent.com/Jimmyzxk/LinuxScripts/main/AIO/Configs/mosdns/mos_rule_update.sh
     chmod +x mos_rule_update.sh
     ./mos_rule_update.sh
     (crontab -l 2>/dev/null; echo "0 0 * * 0 sudo truncate -s 0 /etc/mosdns/mosdns.log && /etc/mosdns/mos_rule_update.sh") | crontab -
