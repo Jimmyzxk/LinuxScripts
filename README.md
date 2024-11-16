@@ -242,4 +242,5 @@ wget --quiet --show-progress -O /mnt/main_install.sh https://raw.githubuserconte
 > 配置由ovpavac、Panicpanic两位大佬调教优化，特别鸣谢。
 > 
 > docker-compose部分出自[FrozenGEE](https://github.com/FrozenGEE/compose)大佬通用库，还有其他仓库，如有需要请移步大佬仓库，特别鸣谢。
+> 此内容来自飞叶大佬，仅自用；
 
