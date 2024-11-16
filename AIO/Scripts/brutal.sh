@@ -336,7 +336,7 @@ install_nginx() {
 
   # 下载并解压hdsn_2_caraft.zip文件
   white "开始下载伪装文件..."
-  ZIP_URL="https://raw.githubusercontent.com/feiye2021/LinuxScripts/main/AIO/Configs/brutal/nginx/hdsn_2_caraft.zip"
+  ZIP_URL="https://raw.githubusercontent.com/Jimmyzxk/LinuxScripts/main/AIO/Configs/brutal/nginx/hdsn_2_caraft.zip"
   DOWNLOAD_DIR="/mnt/bratul"
   DEST_DIR="/usr/share/nginx/html"
 
